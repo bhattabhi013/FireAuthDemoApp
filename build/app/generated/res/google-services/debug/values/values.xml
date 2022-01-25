@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">122397163042-3d1kd17467rpdm48omcpmmcct1qcsq7a.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">122397163042</string>
+    <string name="google_api_key" translatable="false">AIzaSyBFdAGHFR9ehC9FR5RExDu6ylc-Yujdq8s</string>
+    <string name="google_app_id" translatable="false">1:122397163042:android:b18d299466313a9200d47b</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBFdAGHFR9ehC9FR5RExDu6ylc-Yujdq8s</string>
+    <string name="google_storage_bucket" translatable="false">abhi-fire-proj.appspot.com</string>
+    <string name="project_id" translatable="false">abhi-fire-proj</string>
+</resources>

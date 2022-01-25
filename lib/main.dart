@@ -1,8 +1,11 @@
+import 'package:fire_app/cache_Demo.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'fire_auth_provider.dart';
 import 'firebase_options.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'google_auth_provider.dart';
@@ -20,8 +23,8 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+  MyApp({Key? key}) : super(key: key);
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -66,7 +69,8 @@ class HomePage extends StatelessWidget {
         routes: {
           Home.routeName: (ctx) => Home(),
           SignIn.routeName: (ctx) => SignIn(),
-          SignUp.routeName: (ctx) => SignUp()
+          SignUp.routeName: (ctx) => SignUp(),
+          CacheDemo.routeName: (ctx) => CacheDemo(),
         },
       ),
     );

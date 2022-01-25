@@ -88,7 +88,7 @@ class SignUp extends StatelessWidget {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      googleAuth.googleLogin();
+                      googleSignUp(googleAuth, context);
                     },
                     child: const Text('Sign up with Google'),
                   ),
@@ -99,6 +99,21 @@ class SignUp extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void googleSignUp(GoogleSignInProvider auth, BuildContext context) {
+    auth.googleLogin().then((value) {
+      if (value.status) {
+        print('true');
+      } else {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertClass(title: "Auth Failed", message: value.msg);
+          },
+        );
+      }
+    });
   }
 
   void signUp(AuthService auth, BuildContext context) {

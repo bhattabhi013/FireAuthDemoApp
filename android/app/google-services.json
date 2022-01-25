@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "122397163042",
+    "project_id": "abhi-fire-proj",
+    "storage_bucket": "abhi-fire-proj.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122397163042:android:b18d299466313a9200d47b",
+        "android_client_info": {
+          "package_name": "com.example.fire_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122397163042-ut27visokkk5m9mtfcmgifkpqq6grlo9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fire_app",
+            "certificate_hash": "877087bb6cc730b61232322fba931ed5ab8f37bf"
+          }
+        },
+        {
+          "client_id": "122397163042-3d1kd17467rpdm48omcpmmcct1qcsq7a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFdAGHFR9ehC9FR5RExDu6ylc-Yujdq8s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122397163042-3d1kd17467rpdm48omcpmmcct1qcsq7a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -8,19 +8,31 @@ class GoogleSignInProvider extends ChangeNotifier {
 
   GoogleSignInAccount get user => _user!;
 
-  Future googleLogin() async {
-    final googleUser = await _googleSignIn.signIn();
-    if (googleUser == null) return;
-    _user = googleUser;
+  Future<ServiceResponse> googleLogin() async {
+    ServiceResponse resp = ServiceResponse();
+    resp.status = false;
+    resp.msg = "Error while signing in";
+    try {
+      final googleUser = await _googleSignIn.signIn();
+      if (googleUser == null) return resp;
+      _user = googleUser;
 
-    final googleAuth = await googleUser.authentication;
+      final googleAuth = await googleUser.authentication;
 
-    final credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
+      final credential = GoogleAuthProvider.credential(
+          accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
 
-    await FirebaseAuth.instance.signInWithCredential(credential);
-
-    notifyListeners();
+      var user = await FirebaseAuth.instance.signInWithCredential(credential);
+      resp.status = true;
+      resp.msg = "Success";
+      resp.data = user.user;
+      notifyListeners();
+      return resp;
+    } on FirebaseAuthException catch (e) {
+      resp.msg = e.message as String;
+      resp.status = false;
+      return resp;
+    }
   }
 
   Future<void> handleSignOut() async {
@@ -28,4 +40,10 @@ class GoogleSignInProvider extends ChangeNotifier {
     FirebaseAuth.instance.signOut();
     notifyListeners();
   }
+}
+
+class ServiceResponse {
+  late bool status;
+  late String msg;
+  late var data;
 }
